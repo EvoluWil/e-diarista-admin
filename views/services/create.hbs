@@ -1,0 +1,332 @@
+<div class='content-header'>
+  <div class='container-fluid'>
+    <h1>Criar Serviço</h1>
+  </div>
+</div>
+<div class='content'>
+  <div class='container-fluid'>
+    <form action='/admin/services' method='post'>
+      <div class='card'>
+        <div class='card-body'>
+          <fieldset>
+            <legend>Identificação do serviço</legend>
+            <div class='row'>
+              <div class='col-lg-12'>
+                <div class='{{alert}}'>
+                  <p>{{{message}}}</p>
+                </div>
+              </div>
+              <div class='col-md-4'>
+                <div class='form-group'>
+                  <label for='name'>Nome</label>
+                  <input
+                    value='{{oldData.0.name}}'
+                    type='text'
+                    class='form-control'
+                    name='name'
+                    placeholder='Nome do serviço'
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class='col-md-4'>
+                <div class='form-group'>
+                  <label for='icon'>Ícone</label>
+                  <select name='icon' id='icon' class='form-control' required>
+                    <option value={{#if message}}{{oldData.0.icon}}{{^}}''{{/if}}>
+                      {{#if message}}{{oldData.0.icon}}{{^}}Escolha o ícone do serviço{{/if}}
+                    </option>
+                    <option value='ed-cleaning-1'>
+                      ed-cleaning-1
+                    </option>
+                    <option value='ed-cleaning-2'>
+                      ed-cleaning-2
+                    </option>
+                    <option value='ed-cleaning-3'>
+                      ed-cleaning-3
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <div class='col-md-4'>
+                <div class='form-group'>
+                  <label for='position'>Posição de exibição</label>
+                  <input
+                    value='{{oldData.0.position}}'
+                    type='text'
+                    class='form-control'
+                    name='position'
+                    placeholder='Posição de exibição do serviço'
+                    required
+                    data-mask='0'
+                  />
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <hr />
+
+          <fieldset>
+            <legend>Informações Globais</legend>
+            <div class='row'>
+              <div class='col-md-4'>
+                <div class='form-group'>
+                  <label for='minValue'>Valor mínimo</label>
+                  <input
+                    value='{{oldData.0.minValue}}'
+                    type='text'
+                    class='form-control'
+                    name='minValue'
+                    placeholder='Valor mínimo da diária'
+                    required
+                    data-mask='#.##0,00'
+                    data-mask-reverse='true'
+                  />
+                </div>
+              </div>
+
+              <div class='col-md-4'>
+                <div class='form-group'>
+                  <label for='timeInterval'>Menor tempo para execução</label>
+                  <input
+                    value='{{oldData.0.timeInterval}}'
+                    type='text'
+                    class='form-control'
+                    name='timeInterval'
+                    placeholder='Quantidade mínima de horas'
+                    required
+                    data-mask='00'
+                  />
+                </div>
+              </div>
+
+              <div class='col-md-4'>
+                <div class='form-group'>
+                  <label for='serviceFee'>Taxa de serviço</label>
+                  <input
+                    value='{{oldData.0.serviceFee}}'
+                    type='text'
+                    class='form-control'
+                    name='serviceFee'
+                    placeholder='Porcentagem da taxa de serviço'
+                    required
+                    data-mask='00'
+                  />
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <hr />
+
+          <fieldset>
+            <legend>Cômodos</legend>
+            <div class='row'>
+              <div class='col-md-6'>
+                <div class='form-group'>
+                  <label for='bedroomValue'>Valor para quarto</label>
+                  <input
+                    value='{{oldData.0.bedroomValue}}'
+                    type='text'
+                    class='form-control'
+                    name='bedroomValue'
+                    placeholder='Valor por quarto'
+                    required
+                    data-mask='#.##0,00'
+                    data-mask-reverse='true'
+                  />
+                </div>
+              </div>
+
+              <div class='col-md-6'>
+                <div class='form-group'>
+                  <label for='bedroomInterval'>Intervalo para quarto</label>
+                  <input
+                    value='{{oldData.0.bedroomInterval}}'
+                    type='text'
+                    class='form-control'
+                    name='bedroomInterval'
+                    placeholder='Intervalo de horas para quarto'
+                    required
+                    data-mask='00'
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='col-md-6'>
+                <div class='form-group'>
+                  <label for='roomValue'>Valor para Sala</label>
+                  <input
+                    value='{{oldData.0.roomValue}}'
+                    type='text'
+                    class='form-control'
+                    name='roomValue'
+                    placeholder='Valor por Sala'
+                    required
+                    data-mask='#.##0,00'
+                    data-mask-reverse='true'
+                  />
+                </div>
+              </div>
+
+              <div class='col-md-6'>
+                <div class='form-group'>
+                  <label for='roomInterval'>Intervalo para Sala</label>
+                  <input
+                    value='{{oldData.0.roomInterval}}'
+                    type='text'
+                    class='form-control'
+                    name='roomInterval'
+                    placeholder='Intervalo de horas para Sala'
+                    required
+                    data-mask='00'
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='col-md-6'>
+                <div class='form-group'>
+                  <label for='kitchenValue'>Valor para Cozinha</label>
+                  <input
+                    value='{{oldData.0.kitchenValue}}'
+                    type='text'
+                    class='form-control'
+                    name='kitchenValue'
+                    placeholder='Valor por Cozinha'
+                    required
+                    data-mask='#.##0,00'
+                    data-mask-reverse='true'
+                  />
+                </div>
+              </div>
+
+              <div class='col-md-6'>
+                <div class='form-group'>
+                  <label for='kitchenInterval'>Intervalo para Cozinha</label>
+                  <input
+                    value='{{oldData.0.kitchenInterval}}'
+                    type='text'
+                    class='form-control'
+                    name='kitchenInterval'
+                    placeholder='Intervalo de horas para Cozinha'
+                    required
+                    data-mask='00'
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='col-md-6'>
+                <div class='form-group'>
+                  <label for='restroomValue'>Valor para Banheiro</label>
+                  <input
+                    value='{{oldData.0.restroomValue}}'
+                    type='text'
+                    class='form-control'
+                    name='restroomValue'
+                    placeholder='Valor por Banheiro'
+                    required
+                    data-mask='#.##0,00'
+                    data-mask-reverse='true'
+                  />
+                </div>
+              </div>
+
+              <div class='col-md-6'>
+                <div class='form-group'>
+                  <label for='restroomInterval'>Intervalo para Banheiro</label>
+                  <input
+                    value='{{oldData.0.restroomInterval}}'
+                    type='text'
+                    class='form-control'
+                    name='restroomInterval'
+                    placeholder='Intervalo de horas para Banheiro'
+                    required
+                    data-mask='00'
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='col-md-6'>
+                <div class='form-group'>
+                  <label for='backyardValue'>Valor para Quintal</label>
+                  <input
+                    value='{{oldData.0.backyardValue}}'
+                    type='text'
+                    class='form-control'
+                    name='backyardValue'
+                    placeholder='Valor por Quintal'
+                    required
+                    data-mask='#.##0,00'
+                    data-mask-reverse='true'
+                  />
+                </div>
+              </div>
+
+              <div class='col-md-6'>
+                <div class='form-group'>
+                  <label for='backyardInterval'>Intervalo para Quintal</label>
+                  <input
+                    value='{{oldData.0.backyardInterval}}'
+                    type='text'
+                    class='form-control'
+                    name='backyardInterval'
+                    placeholder='Intervalo de horas para Quintal'
+                    required
+                    data-mask='00'
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='col-md-6'>
+                <div class='form-group'>
+                  <label for='otherValue'>Valor para Outro</label>
+                  <input
+                    value='{{oldData.0.otherValue}}'
+                    type='text'
+                    class='form-control'
+                    name='otherValue'
+                    placeholder='Valor por Outro'
+                    required
+                    data-mask='#.##0,00'
+                    data-mask-reverse='true'
+                  />
+                </div>
+              </div>
+
+              <div class='col-md-6'>
+                <div class='form-group'>
+                  <label for='otherInterval'>Intervalo para Outro</label>
+                  <input
+                    value='{{oldData.0.otherInterval}}'
+                    type='text'
+                    class='form-control'
+                    name='otherInterval'
+                    placeholder='Intervalo de horas para Outro'
+                    required
+                    data-mask='00'
+                  />
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <div class='float-right'>
+            <button class='btn btn-primary' type='submit'>Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
