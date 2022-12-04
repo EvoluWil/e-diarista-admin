@@ -1,0 +1,85 @@
+<div class='content-header'>
+  <div class='container-fluid'>
+    <h1>Editar Usuário</h1>
+  </div>
+</div>
+<div class='content'>
+  <div class='container-fluid'>
+    <form action='/admin/users/{{user.id}}?_method=PUT' method='post'>
+      <div class='card'>
+        <div class='card-body'>
+          <fieldset>
+            <legend>Identificação do usuário</legend>
+            <div class='row'>
+              <div class='col-lg-12'>
+                <div class='{{alert}}'>
+                  <p>{{{message}}}</p>
+                </div>
+              </div>
+
+              <div class='col-md-6'>
+                <div class='form-group'>
+                  <label for='name'>Nome</label>
+                  <input
+                    value='{{#if message}}{{oldData.0.name}}{{^}}{{user.name}}{{/if}}'
+                    type='text'
+                    class='form-control'
+                    name='name'
+                    placeholder='Nome do usuário'
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class='col-md-6'>
+                <div class='form-group'>
+                  <label for='email'>E-mail</label>
+                  <input
+                    value='{{#if message}}{{oldData.0.email}}{{^}}{{user.email}}{{/if}}'
+                    type='email'
+                    class='form-control'
+                    name='email'
+                    placeholder='E-mail do usuário'
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class='col-md-6'>
+                <div class='form-group'>
+                  <label for='password'>Senha</label>
+                  <input
+                    value=''
+                    type='password'
+                    class='form-control'
+                    name='password'
+                    placeholder='Senha'
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class='col-md-6'>
+                <div class='form-group'>
+                  <label for='passwordConfirmation'>Senha</label>
+                  <input
+                    value=''
+                    type='password'
+                    class='form-control'
+                    name='passwordConfirmation'
+                    placeholder='Confirmar de Senha'
+                    required
+                  />
+                </div>
+              </div>
+
+            </div>
+          </fieldset>
+          <div class='float-right'>
+            <button class='btn btn-primary' type='submit'>Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

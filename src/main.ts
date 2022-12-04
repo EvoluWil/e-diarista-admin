@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
+import * as passport from 'passport';
 import * as methodOverride from 'method-override';
 import * as exphbs from 'express-handlebars';
 import * as session from 'express-session';
@@ -28,6 +29,9 @@ async function bootstrap() {
       saveUninitialized: false,
     }),
   );
+
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   app.use(flash());
 

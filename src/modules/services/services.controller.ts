@@ -9,13 +9,16 @@ import {
   Param,
   Request,
   UseFilters,
+  UseGuards,
 } from '@nestjs/common';
 import { ServicesService } from './services.service';
 import { CreateServiceDto } from './dto/create-service.dto';
 import { UpdateServiceDto } from './dto/update-service.dto';
-import { CreateException } from 'src/commons/filters/create-service.exception';
-import { UpdateException } from 'src/commons/filters/update-service.exception';
+import { CreateException } from 'src/commons/filters/create-exception.filter';
+import { UpdateException } from 'src/commons/filters/update-exception.filter';
+import { AuthGuard } from 'src/commons/guards/auth.guard';
 
+@UseGuards(AuthGuard)
 @Controller('admin/services')
 export class ServicesController {
   constructor(private readonly servicesService: ServicesService) {}

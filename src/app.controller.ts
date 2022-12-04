@@ -1,13 +1,36 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Redirect,
+  Render,
+  UseFilters,
+  UseGuards,
+  Request,
+} from '@nestjs/common';
 import { AppService } from './app.service';
+import { AuthException } from './commons/filters/auth-exception.filter';
+import { SignInGuard } from './commons/guards/sign-in.guard';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  @Render('home')
-  getHello() {
-    return this.appService.getHello();
+  @Get('admin/sign-in')
+  @Render('sign-in')
+  renderSignIn(@Request() req: any) {
+    return {
+      layout: false,
+      class: req.flash('class'),
+      message: req.flash('message'),
+    };
+  }
+
+  @UseGuards(SignInGuard)
+  @UseFilters(AuthException)
+  @Post('admin/sign-in')
+  @Redirect('/admin/users')
+  signIn() {
+    //
   }
 }

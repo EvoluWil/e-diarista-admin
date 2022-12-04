@@ -1,0 +1,94 @@
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <title>e-Diarista | Admin</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link
+      rel='stylesheet'
+      href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback'
+    />
+    <!-- Font Awesome Icons -->
+    <link rel='stylesheet' href='/fontawesome-free/css/all.min.css' />
+    <link rel='stylesheet' href='/css/adminlte.min.css' />
+    <link rel='stylesheet' href='/fonts/icons/css/e-diarista-icons.css' />
+    <link rel='icon' href='/favicon.ico' sizes='any' type='image/png' />
+    <!-- Theme style -->
+    <style>
+      .suma::-webkit-scrollbar { width: 0px; }
+    </style>
+  </head>
+  <body class='login-page'>
+    <main class='login-box'>
+      <div class='login-logo'>
+        <a href='https://willianrodrigues.tk'><img
+            src='/img/logos/logo.svg'
+            alt='e-Diaristas'
+          /></a>
+        <strong>Administração</strong>
+      </div>
+
+    </main>
+    <div class='card card-outline card-primary'>
+      <div class='card-header'>
+        <h3 class='card-title float-none text-center'>
+          Faça seu login
+        </h3>
+      </div>
+      <div class='card-body login-card-body'>
+        <form action='/admin/sign-in' method='post'>
+          <div class='input-group mb-3'>
+            <input
+              type='email'
+              class='form-control {{class}}'
+              name='username'
+              value=''
+              placeholder='E-mail'
+            />
+            <div class='input-group-append'>
+              <div class='input-group-text'>
+                <span class='fas fa-envelope'></span>
+              </div>
+            </div>
+          </div>
+
+          <div class='input-group mb-3'>
+            <input
+              type='password'
+              class='form-control {{class}}'
+              name='password'
+              value=''
+              placeholder='Senha'
+            />
+            <div class='input-group-append'>
+              <div class='input-group-text'>
+                <span class='fas fa-lock'></span>
+              </div>
+            </div>
+          </div>
+
+          <div class='row'>
+            <div class='col-12'>
+              <div class='text-center text-danger'><strong
+                >{{message}}</strong></div>
+              <button class='btn btn-block btn-primary btn-flat' type='submit'>
+                <span class='fas fa-sign-in-alt mr-2'></span>
+                Entrar
+              </button>
+              <div class='text-center mt-1'>
+                <small><a href='#'>Recuperar senha</a></small>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src='/js/jquery/jquery.min.js'></script>
+    <script
+      src='//cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js'
+    ></script>
+    <script src='/js/bootstrap/js/bootstrap.bundle.min.js'></script>
+    <script src='/js/admin/adminlte.min.js'></script>
+  </body>
+</html>
